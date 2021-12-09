@@ -43,12 +43,11 @@ struct Line
 
   // There was no default constructor. The program won't compile if these
   // fields are not explicitly initialized. Need to go in detail of it.
-  Point<T>* startpoint;
-  Point<T>* endpoint;
+  Point<T> startpoint;
+  Point<T> endpoint;
 
-  Line(Point<T>* a, Point<T>* b) {
-    startpoint = a;
-    endpoint = b;
+  Line(Point<T> a, Point<T> b) : startpoint(a), endpoint(b)
+  {
   }
 };
 
@@ -63,10 +62,10 @@ int main() {
   */
   
   
-  Point3D<float>* p = new Point3D<float>(2.3, 3.1, 8.9);
-  Point3D<float>* q = new Point3D<float>(5.04, 6.2, 4.5);
+  Point3D<float> p = Point3D<float>(2.3, 3.1, 8.9);
+  Point3D<float> q = Point3D<float>(5.04, 6.2, 4.5);
   Line<float, Point3D> l(p, q);
-  std::cout << l.startpoint->x << " " << l.startpoint->y << " " <<  l.startpoint->z << " " << l.endpoint->x << " " << l.endpoint->y << " " <<  l.endpoint->z << "\n";
+  std::cout << l.startpoint.x << " " << l.startpoint.y << " " <<  l.startpoint.z << " " << l.endpoint.x << " " << l.endpoint.y << " " <<  l.endpoint.z << "\n";
   
   
   return 0;
